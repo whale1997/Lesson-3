@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schet</title>
+</head>
+<body>
+
+    Задание 1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100.
+
+    <script>
+        var i = 1;
+        while (i <= 100) {
+	    if (i !== 1) {
+		if (i < 3) {
+			document.write("Простые числа от 1 до 100: <br>" + i + "<br>");
+		} else {
+
+			var a = i - 1;
+            while (i % a !== 0) {
+				var a = a - 1;
+				if (a === 1) {
+					document.write(i + "<br>");
+				}
+			}
+		}
+	}
+	i++;
+}
+        
+// Задание 2. Нужно реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.
+
+        let basket = [
+            {
+                product: "T-shirt",
+                price: getNumber(70, 200)
+            },
+            {
+                product: "shirt",
+                price: getNumber(70, 200)
+            },
+            {
+                product: "pants",
+                price: getNumber(70, 200)
+            },
+            {
+                product: "sneakers",
+                price: getNumber(70, 200)
+            }
+        ];
+        let basketPrice = 0;
+        for (let prod of basket){
+            basketPrice += prod.price;
+            console.log("Товар " + prod.product + " стоит: " + prod.price);
+        }
+
+        console.log("Стоимость корзины: " + basketPrice + " у.е.");
+
+// 3. Товары в корзине хранятся в массиве. Задачи:
+// a) Организовать такой массив для хранения товаров в корзине;
+// b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
+
+        function countBasketPrice(basket) {
+            let funBasketPrice = 0;
+            for (let prod of basket){
+                funBasketPrice += prod.price;
+            }
+            return funBasketPrice;
+        }
+
+        console.log("Стоимость корзины: " + countBasketPrice(basket) + " у.е.");
+
+    </script>
